@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TrackDrop – Music Your Way</title>
+  <style>
+    :root {
+      --primary: #1db954;
+      --bg: #0d0d0d;
+      --text: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background: var(--primary);
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+
+    .navbar {
+      background-color: #1a1a1a;
+      padding: 0.75rem 1rem;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: white;
+      text-decoration: none;
+    }
+
+    .menu-toggle {
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      display: none;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .nav-links li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .hero {
+      padding: 2rem 1rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      max-width: 600px;
+    }
+
+    form {
+      width: 100%;
+      max-width: 500px;
+      background-color: #1a1a1a;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    label {
+      display: block;
+      margin-top: 1rem;
+      text-align: left;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 0.25rem;
+      border-radius: 6px;
+      border: none;
+      background-color: #2a2a2a;
+      color: var(--text);
+      font-size: 1rem;
+    }
+
+    button {
+      margin-top: 1.5rem;
+      background-color: var(--primary);
+      color: white;
+      padding: 0.9rem 1.2rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #1aa34a;
+    }
+
+    footer {
+      padding: 1rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #888;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 0;
+        background-color: #1a1a1a;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .nav-links li {
+        padding: 1rem;
+        border-top: 1px solid #333;
+      }
+
+      .hero h2 {
+        font-size: 1.4rem;
+      }
+
+      form {
+        padding: 1rem;
+      }
+
+      button {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>TrackDrop</h1>
+  </header>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo">TrackDrop</a>
+      <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#form">Join Waitlist</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h2>Get Early Access</h2>
+    <p>Upload albums. Schedule individual track releases. Distribute to major platforms — all from one dashboard.</p>
+
+    <form id="form" action="https://formspree.io/f/yourformid" method="POST">
+      <input type="hidden" name="_redirect" value="https://yourusername.github.io/music-platform-site/thank-you.html" />
+
+      <label>
+        Full Name
+        <input type="text" name="name" required />
+      </label>
+
+      <label>
+        Email Address
+        <input type="email" name="email" required />
+      </label>
+
+      <label>
+        Are you an artist or a label?
+        <select name="user_type" required>
+          <option value="">Select one</option>
+          <option value="artist">Artist</option>
+          <option value="label">Label</option>
+          <option value="both">Both</option>
+        </select>
+      </label>
+
+      <label>
+        Instagram Handle (optional)
+        <input type="text" name="instagram" placeholder="@yourhandle" />
+      </label>
+
+      <label>
+        Why are you interested in TrackDrop?
+        <textarea name="message" rows="4" placeholder="Tell us what excites you..."></textarea>
+      </label>
+
+      <button type="submit">Join the Waitlist</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 TrackDrop – Built for Artists, by Artists
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+  </script>
+
+</body>
+</html>
